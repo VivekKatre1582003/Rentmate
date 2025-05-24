@@ -28,7 +28,7 @@ public class ItemImages {
     private String imageUrl;
 
     @Column(name = "is_primary")
-    private Boolean isPrimary;
+    private Boolean IsPrimary;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
