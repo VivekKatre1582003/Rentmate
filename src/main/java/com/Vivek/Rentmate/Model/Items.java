@@ -43,9 +43,6 @@ public class Items {
     @Column(nullable = false)
     private String condition;
 
-    @Column(name = "owner_id", nullable = false)
-    private UUID ownerId;
-
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;

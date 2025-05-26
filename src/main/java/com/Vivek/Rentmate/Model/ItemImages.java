@@ -19,9 +19,9 @@ public class ItemImages {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
 
-    @Column(name = "item_id", nullable = false)
+    @Column(name = "item_id", insertable = false, updatable = false)
     private UUID itemId;
 
     @Column(name = "image_url", nullable = false)

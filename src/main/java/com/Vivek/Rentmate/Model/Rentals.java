@@ -9,7 +9,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,12 +23,6 @@ public class Rentals {
     @Id
     @GeneratedValue
     private UUID id;
-
-    @Column(name = "item_id", nullable = false)
-    private UUID itemId;
-
-    @Column(name = "renter_id", nullable = false)
-    private UUID renterId;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
@@ -63,5 +56,4 @@ public class Rentals {
     @JoinColumn(name = "item_id", nullable = false)
     @JsonIgnore
     private Items item;
-
 }
