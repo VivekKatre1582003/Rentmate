@@ -40,8 +40,8 @@ public class Items {
     @Column(nullable = false)
     private String category;
 
-    @Column(nullable = false)
-    private String condition;
+    @Column(name = "item_condition", nullable = false)
+    private String itemCondition;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

@@ -1,6 +1,6 @@
 package com.Vivek.Rentmate.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -49,11 +49,11 @@ public class Rentals {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "renter_id", nullable = false)
-    @JsonIgnore
+    @JsonBackReference("user-rentals")
     private User renter;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id", nullable = false)
-    @JsonIgnore
+    @JsonBackReference("item-rentals")
     private Items item;
 }
