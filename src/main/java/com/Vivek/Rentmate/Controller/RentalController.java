@@ -39,25 +39,23 @@ public class RentalController {
         }
 
         Rentals rental = new Rentals();
-        rental.setItemId(dto.getItemId());
-        rental.setRenterId(dto.getRenterId());
+        rental.setItem(item.get());
+        rental.setRenter(renter.get());
         rental.setStartDate(dto.getStartDate());
         rental.setEndDate(dto.getEndDate());
         rental.setTotalPrice(dto.getTotalPrice());
         rental.setStatus("pending");
-        rental.setRenter(renter.get());
-        rental.setItem(item.get());
 
         return ResponseEntity.ok(rentalsRepository.save(rental));
     }
 
     @GetMapping("/renter/{renterId}")
     public List<RentalResponseDto> getRentalsByRenter(@PathVariable UUID renterId) {
-        return rentalsRepository.findByRenterId(renterId).stream().map(r -> new RentalResponseDto(
+        return rentalsRepository.findByRenter_Id(renterId).stream().map(r -> new RentalResponseDto(
                 r.getId(),
-                r.getItemId(),
+                r.getItem().getId(),
                 r.getItem().getName(),
-                r.getRenterId(),
+                r.getRenter().getId(),
                 r.getRenter().getFullName(),
                 r.getStartDate(),
                 r.getEndDate(),
@@ -69,11 +67,11 @@ public class RentalController {
 
     @GetMapping("/item/{itemId}")
     public List<RentalResponseDto> getRentalsByItem(@PathVariable UUID itemId) {
-        return rentalsRepository.findByItemId(itemId).stream().map(r -> new RentalResponseDto(
+        return rentalsRepository.findByItem_Id(itemId).stream().map(r -> new RentalResponseDto(
                 r.getId(),
-                r.getItemId(),
+                r.getItem().getId(),
                 r.getItem().getName(),
-                r.getRenterId(),
+                r.getRenter().getId(),
                 r.getRenter().getFullName(),
                 r.getStartDate(),
                 r.getEndDate(),

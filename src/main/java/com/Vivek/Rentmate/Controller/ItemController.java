@@ -42,7 +42,7 @@ public class ItemController {
         item.setPrice(itemDto.getPrice());
         item.setDailyRate(itemDto.getDailyRate());
         item.setCategory(itemDto.getCategory());
-        item.setCondition(itemDto.getCondition());
+        item.setItemCondition(itemDto.getItemCondition());
         item.setLocation(itemDto.getLocation());
         item.setOwner(ownerOpt.get());  // ✅ set the actual User entity
 
@@ -74,7 +74,7 @@ public class ItemController {
                     item.getPrice(),
                     item.getDailyRate(),
                     item.getCategory(),
-                    item.getCondition(),
+                    item.getItemCondition(),
                     item.getLocation(),
                     item.getOwner().getId(),  // ✅ extract ownerId from User
                     primaryImageUrl
